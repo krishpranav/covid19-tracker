@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+
+:root, [data-theme='dark'] {
+    --bg-color: #1f2028;
+    --text-color: #EEE;
+    --accent-color: theme('colors.pink.600');
+    --muted-color: theme('colors.gray.600');
+    --inset-shadow: 0px 0px 0px rgba(255, 255, 255, .05), 
+    0px 0px 0px rgba(0, 0, 0, .5),
+                    inset -5px -5px 10px rgba(255, 255, 255, .05), 
+                    inset 5px 5px 15px rgba(0, 0, 0, .5);
+    --outset-shadow: -5px -5px 10px rgba(255, 255, 255, .05), 
+                    5px 5px 15px rgba(0, 0, 0, .5),
+                    inset 0px 0px 0px rgba(255, 255, 255, .05), 
+                    inset 0px 0px 0px rgba(0, 0, 0, .5);
+}
+
+[data-theme='light'] {
+    --bg-color: #EEE;
+    --text-color: #1f2028;
+    --accent-color: theme('colors.orange.600');
+    --muted-color: theme('colors.gray.700');
+    --inset-shadow: 0px 0px 0px 0px #fff9, 
+                    0px 0px 0px 0px #fff9, 
+                    0px 0px 0px 0px #0001, 
+                    0px 0px 0px 0px #0001, 
+                    inset -7px -7px 20px 0px #fff9, 
+                    inset -4px -4px 5px 0px #fff9, 
+                    inset 7px 7px 20px 0px #0003, 
+                    inset 4px 4px 5px 0px #0001;
+    --outset-shadow: -7px -7px 20px 0px #fff9, 
+                    -4px -4px 5px 0px #fff9, 
+                    7px 7px 20px 0px #0002, 
+                    4px 4px 5px 0px #0001, 
+                    inset 0px 0px 0px 0px #fff9, 
+                    inset 0px 0px 0px 0px #0001, 
+                    inset 0px 0px 0px 0px #fff9, 
+                    inset 0px 0px 0px 0px #0001;
+}
+
+[data-theme='light'] .header button div {
+    transform: translateX(-54px);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Rubik', sans-serif;
+}
+
+.neumorph {
+    transition: box-shadow 0.2s cubic-bezier(.79,.21,.06,.81);
+    border-radius: 10px;
+}
+
+.btn-map {
+    @apply rounded-full shadow w-8 h-8 bg-accent text-primary font-bold
+}
+
+.btn-map:focus {
+    @apply outline-none shadow-outline
+}
+
+.bg-map {
+    background: transparent;
+    background-size: 35%, 100%;
+    animation: waves 90s ease infinite, zoom .3s ease-out;
+}
+
+@-webkit-keyframes waves {
+    0%{background-position:0% 50%, 0}
+    50%{background-position:100% 50%, 0}
+    100%{background-position:0% 50%, 0}
+}
+@-moz-keyframes waves {
+    0%{background-position:0% 50%, 0}
+    50%{background-position:100% 50%, 0}
+    100%{background-position:0% 50%, 0}
+}
+@keyframes waves {
+    0%{background-position:0% 50%, 0}
+    50%{background-position:100% 50%, 0}
+    100%{background-position:0% 50%, 0}
+}
+
+.virus-icon {
+    animation: virus 1s cubic-bezier(0.980, 0.000, 0.090, 2);
+}
+
+.virus-icon:hover {
+    transform: scale(1.25) rotate(360deg)
+}
+
+@keyframes virus {
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(180deg)
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg)
+    }
+}
+
+.stats-cards {
+    animation: stats .3s ease-in-out;
+}
+
+@keyframes stats {
+    from {
+        opacity: 0;
+        transform: translateY(-10px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.frappe-chart text {
+    fill: var(--text-color) !important
+}
+
+@tailwind utilities;
