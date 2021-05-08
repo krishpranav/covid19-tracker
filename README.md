@@ -10,3 +10,5 @@ cd covid19-tracker
 yarn install
 yarn start
 ```
+
+- now head to http://localhost:3000/
